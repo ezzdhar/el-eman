@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا | مركز الإيمان للخدمات الطبية</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Noto Kufi Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="images/Al-emaan-16 1.png" alt="مركز الإيمان">
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="weare.html">من نحن</a></li>
+                <li><a href="service.html">الخدمات</a></li>
+                <li><a href="Devices.html">الأجهزة</a></li>
+                <li><a href="contact.html" class="active">تواصل معنا</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-cta">
+            <a href="#" class="btn-outline">احجز خدمتك الآن</a>
+        </div>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="contact-hero-overlay"></div>
+        <div class="container">
+            <div class="contact-hero-content">
+                <h1 class="reveal-text">احجز موعدك الآن</h1>
+                <p class="reveal-text">اختر الوقت المناسب لك واحصل على أفضل رعاية طبية من فريقنا المتخصص</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="service-filter-section">
+        <div class="container">
+            <div class="filter-header text-center">
+                <h2>اختر نوع الخدمة المناسبة</h2>
+                <p>حدد الخدمة التي تحتاجها لعرض نموذج الحجز المناسب والتواصل مع فريقنا بسرعة وسهولة.</p>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-target="nursing-form">خدمات التمريض المنزلي</button>
+                <button class="filter-btn" data-target="devices-form">تأجير أجهزة طبية</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Forms Section -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-grid">
+                <!-- Right Side: Forms (Toggled) -->
+                <div class="booking-form-container">
+                    <!-- Home Nursing Form -->
+                    <div id="nursing-form" class="booking-card form-content active">
+                        <div class="form-header">
+                            <div class="form-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h3>معلومات الحجز</h3>
+                        </div>
+                        <form id="nursing-booking-form">
+                            <div class="form-group">
+                                <label>الإسم الكامل</label>
+                                <input type="text" name="name" placeholder="محمد |" required>
+                            </div>
+                            <div class="form-group">
+                                <label>رقم الهاتف / واتساب</label>
+                                <input type="tel" name="phone" placeholder="أدخل رقم الهاتف" required>
+                            </div>
+                            <div class="form-group">
+                                <label>العنوان أو المنطقة</label>
+                                <input type="text" name="address" placeholder="أدخل عنوانك" required>
+                            </div>
+                            <div class="form-group">
+                                <label>الخدمة المطلوبة</label>
+                                <select name="service" required>
+                                    <option value="" disabled selected>اختر نوع الخدمة التي تريدها</option>
+                                    <option value="رسم قلب بالمنزل">رسم قلب بالمنزل</option>
+                                    <option value="تركيب محاليل">تركيب محاليل</option>
+                                    <option value="جلسات استنشاق">جلسات استنشاق</option>
+                                    <option value="العناية بالجروح">العناية بالجروح</option>
+                                    <option value="قياس نسبة الصفراء">قياس نسبة الصفراء</option>
+                                    <option value="غير ذلك">غير ذلك</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>اختيار الممرض</label>
+                                <select name="nurse">
+                                    <option value="" disabled selected>اختر الممرض المراد قدومه</option>
+                                    <option value="محمد">محمد</option>
+                                    <option value="أحمد">أحمد</option>
+                                    <option value="إسلام">إسلام</option>
+                                    <option value="عبدالرحمن">عبدالرحمن</option>
+                                    <option value="أي ممرض متاح">أي ممرض متاح</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>تاريخ الزيارة</label>
+                                <input type="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label>وصف الحالة</label>
+                                <textarea name="description" placeholder="اوصف حالتك"></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                تأكيد الحجز
+                                <i class="fas fa-calendar-check"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Medical Devices Form -->
+                    <div id="devices-form" class="booking-card form-content">
+                        <div class="form-header">
+                            <div class="form-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h3>معلومات الحجز</h3>
+                        </div>
+                        <form id="devices-booking-form">
+                            <div class="form-group">
+                                <label>الإسم الكامل</label>
+                                <input type="text" name="name" placeholder="محمد |" required>
+                            </div>
+                            <div class="form-group">
+                                <label>رقم الهاتف / واتساب</label>
+                                <input type="tel" name="phone" placeholder="أدخل رقم الهاتف" required>
+                            </div>
+                            <div class="form-group">
+                                <label>العنوان أو المنطقة</label>
+                                <input type="text" name="address" placeholder="أدخل عنوانك" required>
+                            </div>
+                            <div class="form-group">
+                                <label>نوع الجهاز</label>
+                                <select name="device" required>
+                                    <option value="" disabled selected>اختر نوع الجهاز الذي تريده</option>
+                                    <option value="جهاز أكسجين">جهاز أكسجين</option>
+                                    <option value="جهاز CPAP">جهاز CPAP</option>
+                                    <option value="جهاز BiPAP">جهاز BiPAP</option>
+                                    <option value="جهاز فاكيوم">جهاز فاكيوم</option>
+                                    <option value="جهاز تشفيط">جهاز تشفيط</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>مدة الإيجار</label>
+                                <select name="duration" required>
+                                    <option value="" disabled selected>اختر المدة</option>
+                                    <option value="يوم">يوم</option>
+                                    <option value="أسبوع">أسبوع</option>
+                                    <option value="شهر">شهر</option>
+                                    <option value="غير ذلك">غير ذلك</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                اطلب الجهاز الآن
+                                <i class="fas fa-calendar-check"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Left Side: Info Cards -->
+                <div class="booking-info-container">
+                    <!-- Working Hours -->
+                    <div class="info-card">
+                        <div class="info-header">
+                            <i class="far fa-clock"></i>
+                            <h4>ساعات العمل</h4>
+                        </div>
+                        <div class="info-item">
+                            <span class="day">السبت - الخميس</span>
+                            <span class="time">8:00 ص - 10:00 م</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="day">الجمعة</span>
+                            <span class="time">2:00 م - 10:00 م</span>
+                        </div>
+                        <div class="info-item emergency">
+                            <span class="day">حالات الطوارئ</span>
+                            <span class="time">24/7</span>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="info-card">
+                        <div class="info-header">
+                            <i class="fas fa-phone-alt"></i>
+                            <h4>معلومات التواصل</h4>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>010-0000-0000</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@medical-center.com</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>دمياط القديمة - ميدان سرور</span>
+                        </div>
+                    </div>
+
+                    <!-- Why Us -->
+                    <div class="info-card why-us-card-booking">
+                        <div class="info-header">
+                            <h4>لماذا تختارنا ؟</h4>
+                        </div>
+                        <ul class="why-us-list">
+                            <li><i class="fas fa-check-circle"></i> خدمة سريعة داخل دمياط</li>
+                            <li><i class="fas fa-check-circle"></i> دعم واتساب مباشر</li>
+                            <li><i class="fas fa-check-circle"></i> أجهزة حديثة ومعقمة</li>
+                            <li><i class="fas fa-check-circle"></i> متاحون طوال الأسبوع</li>
+                            <li><i class="fas fa-check-circle"></i> مواعيد مرنة ومناسبة</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <!-- Background Image -->
+        <img src="images/Footer (4).png" alt="footer background" class="footer-bg-img">
+        <!-- Footer Content -->
+        <div class="footer-inner">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Logo + Description -->
+                    <div class="footer-col footer-brand">
+                        <div class="footer-logo">
+                            <img src="images/Al-emaan-16 1.png" alt="مركز الإيمان">
+                        </div>
+                        <p class="footer-desc">
+                            مركز الإيمان للخدمات الطبية يقدم خدمات التمريض المنزلي وتأجير الأجهزة الطبية بأعلى جودة
+                            وأسعار مناسبة داخل دمياط والمناطق المجاورة.
+                        </p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-col footer-links">
+                        <h4 class="footer-heading">روابط سريعة</h4>
+                        <ul>
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="weare.html">من نحن</a></li>
+                            <li><a href="service.html">خدماتنا المميزة</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact + Social -->
+                    <div class="footer-col footer-social-col">
+                        <h4 class="footer-heading">تواصل معنا</h4>
+                        <div class="footer-social">
+                            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Bottom Bar -->
+                <div class="footer-bottom">
+                    <p>جميع الحقوق محفوظة &copy; 2025 مركز الإيمان للاستشارات الصحية . بواساطة <span>Digital
+                            Order</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Register GSAP plugins
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Toggle Booking Forms
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const forms = document.querySelectorAll('.form-content');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = btn.getAttribute('data-target');
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    forms.forEach(form => {
+                        if (form.id === target) {
+                            form.classList.add('active');
+                            gsap.fromTo(form, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" });
+                        } else {
+                            form.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // Form Submission Logic
+            const handleFormSubmit = (e, type) => {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                const data = Object.fromEntries(formData.entries());
+                let subject = type === 'nursing' ? 'طلب حجز تمريض منزلي' : 'طلب إيجار جهاز طبي';
+                let body = `تفاصيل الطلب:\n\n`;
+                for (const [key, value] of Object.entries(data)) { body += `${key}: ${value}\n`; }
+                const mailtoLink = `mailto:alemaaan013@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = mailtoLink;
+                alert('سيتم فتح تطبيق البريد الخاص بك لإرسال الطلب. شكراً لتواصلك معنا!');
+            };
+
+            document.getElementById('nursing-booking-form').addEventListener('submit', (e) => handleFormSubmit(e, 'nursing'));
+            document.getElementById('devices-booking-form').addEventListener('submit', (e) => handleFormSubmit(e, 'devices'));
+
+            // Page Entrance Animations
+            const mainTl = gsap.timeline();
+            
+            // Hero Animations
+            mainTl.fromTo('.contact-hero-content h1', { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power4.out" })
+                  .fromTo('.contact-hero-content p', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power4.out" }, "-=0.7")
+                  .fromTo('.service-filter-section', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, "-=0.5")
+                  .fromTo('.filter-btn', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, stagger: 0.1, ease: "back.out(1.7)" }, "-=0.3");
+
+            // Scroll animations for cards
+            gsap.fromTo(".booking-card", 
+                { x: 50, opacity: 0 }, 
+                { 
+                    scrollTrigger: { trigger: ".booking-section", start: "top 95%", once: true },
+                    x: 0, opacity: 1, duration: 0.8, ease: "power3.out" 
+                }
+            );
+
+            gsap.fromTo(".info-card", 
+                { x: -50, opacity: 0 }, 
+                { 
+                    scrollTrigger: { trigger: ".booking-info-container", start: "top 95%", once: true },
+                    x: 0, opacity: 1, stagger: 0.15, duration: 0.8, ease: "power3.out" 
+                }
+            );
+
+            // Refresh ScrollTrigger after a short delay
+            setTimeout(() => { ScrollTrigger.refresh(); }, 500);
+        });
+    </script>
+</body>
+
+</html>

@@ -2670,3 +2670,383 @@ nav ul li a:hover {
         font-size: 32px;
     }
 }
+
+/* Contact Hero Section */
+.contact-hero {
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    background: url('images/Frame 2147225210.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+
+.contact-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 20px;
+    margin-top: -6rem;
+}
+
+.contact-hero-content h1 {
+    font-size: 64px;
+    font-weight: 600;
+    color: #1E4265;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.contact-hero-content p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #1E4265;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* Navbar Active State for Contact Page */
+nav ul li a.active {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Responsive adjustments for Contact Hero */
+@media (max-width: 1200px) {
+    .contact-hero-content h1 {
+        font-size: 70px;
+    }
+}
+
+@media (max-width: 992px) {
+    .contact-hero-content h1 {
+        font-size: 56px;
+    }
+
+    .contact-hero-content p {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero-content h1 {
+        font-size: 42px;
+    }
+
+    .contact-hero-content p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-hero-content h1 {
+        font-size: 36px;
+    }
+
+    .contact-hero-content p {
+        font-size: 16px;
+    }
+}
+
+/* Booking and Filter Section Styles */
+.service-filter-section {
+    padding: 80px 0 20px;
+    background: #fff;
+    position: relative;
+    z-index: 10;
+}
+
+.service-filter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #eee, transparent);
+}
+
+.filter-header h2 {
+    font-size: 36px;
+    color: #1E4265;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.filter-header p {
+    color: #888;
+    font-size: 17px;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    /* Connected buttons style */
+    margin-bottom: 50px;
+    background: #f9fbfe;
+    width: fit-content;
+    margin: 0 auto 50px;
+    padding: 8px;
+    border-radius: 12px;
+    border: 1px solid #f1f4f8;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.filter-btn {
+    padding: 14px 35px;
+    border: none;
+    background: transparent;
+    color: #5b748e;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.filter-btn.active {
+    background: #1E4265;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(30, 66, 101, 0.2);
+}
+
+.filter-btn:not(.active):hover {
+    background: rgba(30, 66, 101, 0.05);
+    color: #1E4265;
+}
+
+.booking-section {
+    padding: 40px 0 100px;
+    background: #fcfdfe;
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+    align-items: start;
+}
+
+.booking-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f4f8;
+}
+
+.form-content {
+    display: none;
+}
+
+.form-content.active {
+    display: block;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.form-icon {
+    width: 50px;
+    height: 50px;
+    background: #f0f7ff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1E4265;
+    font-size: 22px;
+}
+
+.form-header h3 {
+    font-size: 24px;
+    color: #1E4265;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #1E4265;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #eef2f6;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #333;
+    background: #f9fbfe;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #1E4265;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(30, 66, 101, 0.05);
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #1E4265;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background: #14304d;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(30, 66, 101, 0.2);
+}
+
+/* Info Cards Styles */
+.info-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 25px;
+    border: 1px solid #f1f4f8;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
+}
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f9fbfe;
+}
+
+.info-header i {
+    font-size: 20px;
+    color: #1E4265;
+}
+
+.info-header h4 {
+    font-size: 18px;
+    color: #1E4265;
+    font-weight: 700;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.info-item .day {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+}
+
+.info-item .time {
+    font-size: 14px;
+    color: #1E4265;
+    font-weight: 700;
+}
+
+.emergency .time {
+    color: #e74c3c;
+}
+
+.info-card .info-item i {
+    color: #1E4265;
+    width: 20px;
+}
+
+.info-card .info-item span {
+    flex: 1;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #555;
+    text-align: right;
+}
+
+.why-us-list {
+    list-style: none;
+}
+
+.why-us-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.why-us-list li i {
+    color: #07CCEC;
+    font-size: 16px;
+}
+
+/* Responsive Booking Section */
+@media (max-width: 992px) {
+    .booking-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-info-container {
+        order: 2;
+    }
+
+    .booking-form-container {
+        order: 1;
+    }
+
+    .filter-btn {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+}
