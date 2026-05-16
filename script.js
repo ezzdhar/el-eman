@@ -2,6 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Register GSAP plugins
     gsap.registerPlugin(ScrollTrigger);
 
+    // Mobile Menu Toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.querySelector('header nav');
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+    }
+
     // Initial Hero Animations
     const heroTl = gsap.timeline();
     
@@ -183,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentIndex = 0;
         
         function updateSlider() {
-            const isMobile = window.innerWidth <= 768;
+            const isMobile = window.innerWidth <= 992;
             const cardWidth = isMobile ? 100 : 50; 
             const maxIndex = isMobile ? cards.length - 1 : cards.length - 2;
             
@@ -201,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
-                const isMobile = window.innerWidth <= 768;
+                const isMobile = window.innerWidth <= 992;
                 const maxIndex = isMobile ? cards.length - 1 : cards.length - 2;
                 currentIndex = (currentIndex + 1) > maxIndex ? 0 : currentIndex + 1;
                 updateSlider();
@@ -210,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
-                const isMobile = window.innerWidth <= 768;
+                const isMobile = window.innerWidth <= 992;
                 const maxIndex = isMobile ? cards.length - 1 : cards.length - 2;
                 currentIndex = (currentIndex - 1) < 0 ? maxIndex : currentIndex - 1;
                 updateSlider();
@@ -219,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
-                const isMobile = window.innerWidth <= 768;
+                const isMobile = window.innerWidth <= 992;
                 const maxIndex = isMobile ? cards.length - 1 : cards.length - 2;
                 if (index <= maxIndex) {
                     currentIndex = index;
@@ -230,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Auto slide
         setInterval(() => {
-            const isMobile = window.innerWidth <= 768;
+            const isMobile = window.innerWidth <= 992;
             const maxIndex = isMobile ? cards.length - 1 : cards.length - 2;
             currentIndex = (currentIndex + 1) > maxIndex ? 0 : currentIndex + 1;
             updateSlider();
@@ -560,14 +569,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         );
     }
-    // Handle order button click state
-    const orderBtns = document.querySelectorAll('.order-btn');
-    orderBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            btn.classList.toggle('active');
-        });
-    });
+
 
     // Refresh ScrollTrigger to account for new tall section
     ScrollTrigger.refresh();

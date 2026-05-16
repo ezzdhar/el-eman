@@ -57,6 +57,10 @@ nav ul {
     gap: 40px;
 }
 
+.mobile-menu-toggle {
+    display: none;
+}
+
 nav ul li a {
     text-decoration: none;
     color: var(--text-white);
@@ -156,6 +160,17 @@ nav ul li a.active,
     gap: 20px;
 }
 
+@media (min-width: 780px) {
+    .hero-btns>a {
+        flex: 1;
+        max-width: 260px;
+        justify-content: center;
+        text-align: center;
+        display: flex;
+        align-items: center;
+    }
+}
+
 .btn-primary {
     background-color: var(--primary-color);
     color: #ffffff;
@@ -221,8 +236,64 @@ nav ul li a.active,
     }
 
     nav {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        background: #fff;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transition: right 0.4s ease;
+        padding-top: 80px;
+        display: block;
+    }
+
+    nav.open {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 30px;
+        gap: 25px;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        font-size: 20px;
+        color: #1E4265 !important;
+        padding: 10px 0;
+        font-weight: 600;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 34px;
+        color: #ffffff;
+        cursor: pointer;
+        z-index: 1001;
+        transition: color 0.3s ease;
+    }
+
+    .weare-header .mobile-menu-toggle {
+        color: #1E4265;
+    }
+
+    .header-cta {
         display: none;
-        /* Hide nav on mobile for simplicity, could add a burger menu later */
     }
 
     .hero-content h1 {
@@ -672,6 +743,13 @@ nav ul li a.active,
     }
 }
 
+@media (max-width:390px) {
+
+    .services-grid {
+        margin-top: -5px;
+    }
+}
+
 /* Global Section Header Styles */
 .section-header {
     margin-bottom: 50px;
@@ -748,7 +826,6 @@ nav ul li a.active,
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 25px;
-    background-color: #f8f9fa;
 }
 
 .team-img img {
@@ -859,19 +936,93 @@ nav ul li a.active,
     margin: -2px;
 }
 
-/* Mobile Responsiveness for Team */
-@media (max-width: 768px) {
+/* Professional Responsiveness for Team Section */
+@media (max-width: 1200px) {
+    .team-img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 992px) {
     .team-slider-wrapper {
-        max-width: 100%;
-        padding: 0 20px;
+        max-width: 500px;
+        /* Constrains width to match image proportions better */
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .team-slider {
+        gap: 0;
     }
 
     .team-card {
         min-width: 100%;
+        padding: 25px;
+        margin: 0 auto;
     }
 
     .team-img {
-        height: 240px;
+        height: 350px;
+    }
+
+    .team-info h3 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-img {
+        height: 320px;
+        /* Taller on mobile since it spans full width */
+    }
+
+    .team-info h3 {
+        font-size: 26px;
+    }
+
+    .team-info p {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .slider-nav {
+        margin-top: 35px;
+        gap: 40px;
+    }
+
+    .team-section img {
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-section {
+        padding: 60px 0;
+    }
+
+    .team-card {
+        padding: 20px 15px;
+        border-radius: 20px;
+    }
+
+    .team-img {
+        height: 250px;
+        margin-bottom: 20px;
+    }
+
+    .team-info h3 {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    .team-info .role {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .team-card .order-btn {
+        padding: 10px 20px;
+        font-size: 15px;
     }
 }
 
@@ -1292,6 +1443,30 @@ nav ul li a.active,
 
     .card-v h3 {
         font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .offer-item .item-content {
+        padding: 20px;
+    }
+
+    .offer-item h3,
+    .card-v h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .offer-item p {
+        font-size: 14px;
+        margin-bottom: 15px;
+        line-height: 1.4;
+        max-width: 100%;
+    }
+
+    .offer-item .item-btn.border {
+        padding: 8px 18px;
+        font-size: 14px;
     }
 }
 
@@ -1993,6 +2168,13 @@ nav ul li a.active,
 }
 
 /* ---- Responsive ---- */
+@media (max-width: 1024px) {
+    .footer-grid {
+        gap: 5px;
+    }
+}
+
+
 @media (max-width: 992px) {
     .cta-title {
         font-size: 32px;
@@ -2027,7 +2209,16 @@ nav ul li a.active,
 
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 35px;
+        gap: 25px;
+    }
+
+    .footer-col:nth-child(3) h4 {
+        display: none;
+    }
+
+    .footer-col:nth-child(3) {
+        margin-top: -15px;
+        /* Pulls the second part of the links closer */
     }
 
     .footer-desc {
@@ -2140,7 +2331,7 @@ nav ul li a.active,
     background: none;
     border: none;
     font-size: 24px;
-    color: #0d3b66;
+    color: #ffff;
     cursor: pointer;
 }
 
@@ -2947,12 +3138,35 @@ nav ul li a.active,
 .form-group textarea {
     width: 100%;
     padding: 14px 18px;
-    border: 1px solid #eef2f6;
-    border-radius: 10px;
+    border: 1.5px solid #eef2f6;
+    border-radius: 12px;
     font-size: 15px;
-    color: #333;
+    color: #1E4265;
     background: #f9fbfe;
     transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input[name="phone"] {
+    text-align: right;
+}
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231E4265' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left 15px center;
+    background-size: 18px;
+    padding-left: 45px;
+    cursor: pointer;
+}
+
+.form-group select:focus {
+    background-color: #fff;
+    border-color: #1E4265;
+    box-shadow: 0 0 0 4px rgba(30, 66, 101, 0.08);
 }
 
 .form-group input:focus,
@@ -3057,6 +3271,11 @@ nav ul li a.active,
     font-size: 14px;
     color: #555;
     text-align: right;
+}
+
+.info-card .info-item a {
+    color: #555;
+    text-decoration: none;
 }
 
 .why-us-list {

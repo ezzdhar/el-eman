@@ -83,7 +83,7 @@
                         <form id="nursing-booking-form">
                             <div class="form-group">
                                 <label>الإسم الكامل</label>
-                                <input type="text" name="name" placeholder="محمد |" required>
+                                <input type="text" name="name" placeholder="الاسم الأول" required>
                             </div>
                             <div class="form-group">
                                 <label>رقم الهاتف / واتساب</label>
@@ -96,7 +96,7 @@
                             <div class="form-group">
                                 <label>الخدمة المطلوبة</label>
                                 <select name="service" required>
-                                    <option value="" disabled selected>اختر نوع الخدمة التي تريدها</option>
+
                                     <option value="رسم قلب بالمنزل">رسم قلب بالمنزل</option>
                                     <option value="تركيب محاليل">تركيب محاليل</option>
                                     <option value="جلسات استنشاق">جلسات استنشاق</option>
@@ -108,7 +108,7 @@
                             <div class="form-group">
                                 <label>اختيار الممرض</label>
                                 <select name="nurse">
-                                    <option value="" disabled selected>اختر الممرض المراد قدومه</option>
+
                                     <option value="محمد">محمد</option>
                                     <option value="أحمد">أحمد</option>
                                     <option value="إسلام">إسلام</option>
@@ -142,7 +142,7 @@
                         <form id="devices-booking-form">
                             <div class="form-group">
                                 <label>الإسم الكامل</label>
-                                <input type="text" name="name" placeholder="محمد |" required>
+                                <input type="text" name="name" placeholder="الاسم الأول" required>
                             </div>
                             <div class="form-group">
                                 <label>رقم الهاتف / واتساب</label>
@@ -155,7 +155,7 @@
                             <div class="form-group">
                                 <label>نوع الجهاز</label>
                                 <select name="device" required>
-                                    <option value="" disabled selected>اختر نوع الجهاز الذي تريده</option>
+
                                     <option value="جهاز أكسجين">جهاز أكسجين</option>
                                     <option value="جهاز CPAP">جهاز CPAP</option>
                                     <option value="جهاز BiPAP">جهاز BiPAP</option>
@@ -166,7 +166,7 @@
                             <div class="form-group">
                                 <label>مدة الإيجار</label>
                                 <select name="duration" required>
-                                    <option value="" disabled selected>اختر المدة</option>
+
                                     <option value="يوم">يوم</option>
                                     <option value="أسبوع">أسبوع</option>
                                     <option value="شهر">شهر</option>
@@ -302,8 +302,8 @@
 
                 <!-- Footer Bottom Bar -->
                 <div class="footer-bottom">
-                    <p>جميع الحقوق محفوظة &copy; 2025 مركز الإيمان للاستشارات الصحية . بواساطة <span>Digital
-                            Order</span></p>
+                    <p>جميع الحقوق محفوظة &copy; 2025 مركز الإيمان للاستشارات الصحية . بواساطة <span>
+                        </span></p>
                 </div>
             </div>
         </div>
@@ -346,18 +346,55 @@
                 });
             });
 
-            // Form Submission Logic
+            // Translations for Email Body
+            const labelTranslations = {
+                'name': 'الإسم الكامل',
+                'phone': 'رقم الهاتف / واتساب',
+                'address': 'العنوان أو المنطقة',
+                'service': 'الخدمة المطلوبة',
+                'nurse': 'الممرض المختار',
+                'date': 'تاريخ الزيارة',
+                'description': 'وصف الحالة',
+                'device': 'نوع الجهاز',
+                'duration': 'مدة الإيجار'
+            };
+
             const handleFormSubmit = (e, type) => {
                 e.preventDefault();
-                const formData = new FormData(e.target);
-                const data = Object.fromEntries(formData.entries());
+                const form = e.target;
+                const formData = new FormData(form);
                 let subject = type === 'nursing' ? 'طلب حجز تمريض منزلي' : 'طلب إيجار جهاز طبي';
-                let body = `تفاصيل الطلب:\n\n`;
-                for (const [key, value] of Object.entries(data)) { body += `${key}: ${value}\n`; }
+                let body = `تفاصيل الطلب الجديد من الموقع:\n`;
+                body += `-----------------------------------\n`;
+                
+                formData.forEach((value, key) => {
+                    const label = labelTranslations[key] || key;
+                    body += `${label}: ${value}\n`;
+                });
+
                 const mailtoLink = `mailto:alemaaan013@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 window.location.href = mailtoLink;
-                alert('سيتم فتح تطبيق البريد الخاص بك لإرسال الطلب. شكراً لتواصلك معنا!');
+                alert('شكراً لك! سيتم الآن فتح تطبيق البريد لإرسال طلبك إلى المركز.');
             };
+
+            // Enhanced Arabic Validation
+            const allInputs = document.querySelectorAll('#nursing-booking-form input, #nursing-booking-form select, #nursing-booking-form textarea, #devices-booking-form input, #devices-booking-form select, #devices-booking-form textarea');
+            
+            allInputs.forEach(input => {
+                const setArabicMessage = () => {
+                    input.setCustomValidity("");
+                    if (input.validity.valueMissing) {
+                        input.setCustomValidity("يرجى ملء هذا الحقل المطلوب");
+                    } else if (input.validity.typeMismatch && input.type === 'email') {
+                        input.setCustomValidity("يرجى إدخال بريد إلكتروني صحيح");
+                    } else if (input.validity.typeMismatch && input.type === 'tel') {
+                        input.setCustomValidity("يرجى إدخال رقم هاتف صحيح");
+                    }
+                };
+
+                input.addEventListener('invalid', setArabicMessage);
+                input.addEventListener('input', () => input.setCustomValidity(""));
+            });
 
             document.getElementById('nursing-booking-form').addEventListener('submit', (e) => handleFormSubmit(e, 'nursing'));
             document.getElementById('devices-booking-form').addEventListener('submit', (e) => handleFormSubmit(e, 'devices'));
