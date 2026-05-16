@@ -181,13 +181,18 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (slider && cards.length > 0) {
         let currentIndex = 0;
-        const cardWidth = 50; // Percent on desktop
         
         function updateSlider() {
             const isMobile = window.innerWidth <= 768;
-            const moveAmount = isMobile ? 100 : cardWidth;
+            const cardWidth = isMobile ? 100 : 50; 
+            const maxIndex = isMobile ? cards.length - 1 : cards.length - 2;
             
-            slider.style.transform = `translateX(${currentIndex * (moveAmount)}%)`;
+            // Boundary check
+            if (currentIndex > maxIndex) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = maxIndex;
+            
+            const moveAmount = isMobile ? 100 : 50;
+            slider.style.transform = `translateX(${currentIndex * moveAmount}%)`;
             
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentIndex);
@@ -196,39 +201,51 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % (window.innerWidth <= 768 ? cards.length : cards.length - 1);
+                const isMobile = window.innerWidth <= 768;
+                const maxIndex = isMobile ? cards.length - 1 : cards.length - 2;
+                currentIndex = (currentIndex + 1) > maxIndex ? 0 : currentIndex + 1;
                 updateSlider();
             });
         }
         
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + (window.innerWidth <= 768 ? cards.length : cards.length - 1)) % (window.innerWidth <= 768 ? cards.length : cards.length - 1);
+                const isMobile = window.innerWidth <= 768;
+                const maxIndex = isMobile ? cards.length - 1 : cards.length - 2;
+                currentIndex = (currentIndex - 1) < 0 ? maxIndex : currentIndex - 1;
                 updateSlider();
             });
         }
         
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
-                currentIndex = index;
-                updateSlider();
+                const isMobile = window.innerWidth <= 768;
+                const maxIndex = isMobile ? cards.length - 1 : cards.length - 2;
+                if (index <= maxIndex) {
+                    currentIndex = index;
+                    updateSlider();
+                }
             });
         });
 
         // Auto slide
         setInterval(() => {
-            currentIndex = (currentIndex + 1) % (window.innerWidth <= 768 ? cards.length : cards.length - 1);
+            const isMobile = window.innerWidth <= 768;
+            const maxIndex = isMobile ? cards.length - 1 : cards.length - 2;
+            currentIndex = (currentIndex + 1) > maxIndex ? 0 : currentIndex + 1;
             updateSlider();
-        }, 5000);
+        }, 4000);
+
+        window.addEventListener('resize', updateSlider);
     }
 
-    // Offers Section Animations
-    gsap.fromTo('.offers-section .section-header', 
+    // Exclusive Offers Section Animations
+    gsap.fromTo('.exclusive-offers-section .offers-header', 
         { y: 50, opacity: 0 },
         { 
             scrollTrigger: {
-                trigger: '.offers-section',
-                start: 'top 95%', // Trigger much earlier
+                trigger: '.exclusive-offers-section',
+                start: 'top 90%', 
                 once: true
             },
             y: 0, 
@@ -238,11 +255,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     );
 
-    gsap.fromTo('.offer-card', 
+    gsap.fromTo('.offer-item', 
         { y: 60, opacity: 0, scale: 0.95 },
         { 
             scrollTrigger: {
-                trigger: '.offers-section',
+                trigger: '.offers-bento-grid',
                 start: 'top 85%',
                 once: true
             },
@@ -543,4 +560,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         );
     }
+    // Handle order button click state
+    const orderBtns = document.querySelectorAll('.order-btn');
+    orderBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            btn.classList.toggle('active');
+        });
+    });
+
+    // Refresh ScrollTrigger to account for new tall section
+    ScrollTrigger.refresh();
+    setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 1000);
 });

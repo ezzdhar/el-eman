@@ -69,6 +69,14 @@ nav ul li a:hover {
     color: var(--primary-color);
 }
 
+nav ul li a.active,
+.weare-header nav ul li a.active {
+    background-color: #1E4265;
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 8px;
+}
+
 .header-cta .btn-outline {
     padding: 10px 20px;
     border: 1px solid rgba(255, 255, 255, 0.6);
@@ -368,7 +376,6 @@ nav ul li a:hover {
 .services-header {
     width: 100%;
     height: 500px;
-    /* Increased height for more impact */
     background: url('images/664 1.png') no-repeat center center/cover;
     position: relative;
     display: flex;
@@ -381,24 +388,17 @@ nav ul li a:hover {
 /* Why Choose Us Section */
 .why-choose-us {
     padding: 100px 0;
-    background-color: #020b1a;
-    /* Dark background as in image */
     background-image: url('images/Card (4).png');
-    /* Heartbeat line background */
     background-size: cover;
     background-position: center;
     position: relative;
     overflow: hidden;
     box-shadow: 0 30px 47px rgba(0, 0, 0, 0.8),
         0 0 30px rgba(7, 204, 236, 0.15);
-    /* Dual shadow for depth and glow */
 }
 
 .why-us-card {
-    background: rgba(2, 11, 26, 0.4);
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(7, 204, 236, 0.3);
-    /* Slightly more visible border */
     border-radius: 30px;
     padding: 60px;
     max-width: 1100px;
@@ -559,13 +559,10 @@ nav ul li a:hover {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     max-width: 800px;
-    /* Further reduced width as requested */
     margin: -120px auto 0;
     position: relative;
     z-index: 5;
     padding: 0 20px;
-    align-items: stretch;
-    /* Ensure cards align perfectly at the top and have same height */
 }
 
 .service-card {
@@ -573,11 +570,10 @@ nav ul li a:hover {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
-    transition: ease, box-shadow 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     text-align: center;
     padding-bottom: 30px;
     height: 100%;
-    /* Consistent height */
     display: flex;
     flex-direction: column;
 }
@@ -587,22 +583,20 @@ nav ul li a:hover {
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
 }
 
-.card-image {
+.service-card .card-image {
     position: relative;
     height: 220px;
-    /* Reduced height to make cards smaller */
     margin: 15px;
 }
 
-.card-image img {
+.service-card .card-image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* Ensure image is fully visible as requested */
     border-radius: 15px;
 }
 
-.card-badge {
+.service-card .card-badge {
     position: absolute;
     bottom: -25px;
     left: 50%;
@@ -613,31 +607,32 @@ nav ul li a:hover {
     z-index: 3;
 }
 
-.card-badge img {
+.service-card .card-badge img {
     width: 70px;
     height: 70px;
     object-fit: contain;
 }
 
-.card-info {
+.service-card .card-info {
     padding: 40px 25px 0;
+    flex-grow: 1;
 }
 
-.card-info h3 {
+.service-card .card-info h3 {
     font-size: 22px;
     font-weight: 800;
     color: #0d3b66;
     margin-bottom: 15px;
 }
 
-.card-info p {
+.service-card .card-info p {
     font-size: 14px;
     color: #777;
     line-height: 1.6;
     margin-bottom: 25px;
 }
 
-.order-btn {
+.service-card .order-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -649,20 +644,15 @@ nav ul li a:hover {
     padding: 12px 25px;
     border-radius: 8px;
     font-weight: 700;
+    font-size: 16px;
     transition: all 0.3s ease;
     margin: 0 15px;
 }
 
-.order-btn:hover {
+.service-card .order-btn:hover {
     background-color: #1E4265;
     border-color: #07CCEC;
     color: #fff;
-}
-
-/* Click state as requested */
-.order-btn.active {
-    background-color: #1E4265 !important;
-    border-color: #1E4265 !important;
 }
 
 /* Mobile Adjustments for Services */
@@ -682,15 +672,10 @@ nav ul li a:hover {
     }
 }
 
-/* Team Section Styles */
-.team-section {
-    padding: 80px 0;
-    background-color: #fff;
-    text-align: center;
-}
-
+/* Global Section Header Styles */
 .section-header {
     margin-bottom: 50px;
+    text-align: center;
 }
 
 .section-header .small-badge {
@@ -720,106 +705,158 @@ nav ul li a:hover {
     line-height: 1.6;
 }
 
+/* Team Section Styles */
+.team-section {
+    padding: 100px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
 .team-slider-wrapper {
     position: relative;
     overflow: hidden;
-    max-width: 900px;
-    /* Centered and narrower as requested */
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 20px;
 }
 
 .team-slider {
     display: flex;
-    gap: 25px;
+    gap: 30px;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-card {
-    min-width: calc(50% - 13px);
-    /* 2 cards per row on desktop */
+    min-width: calc(50% - 15px);
     background: #fff;
     border: 1px solid #f3f9ff;
-    border-radius: 20px;
-    padding: 20px;
+    border-radius: 25px;
+    padding: 30px;
     text-align: center;
-    box-shadow: 0 10px 40px rgba(13, 59, 102, 0.04);
+    box-shadow: 0 10px 40px rgba(13, 59, 102, 0.03);
+    transition: all 0.4s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(13, 59, 102, 0.08);
 }
 
 .team-img {
-    height: 360px;
-    /* Smaller image */
-    border-radius: 15px;
+    width: 100%;
+    height: 420px;
+    border-radius: 20px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    background-color: #f8f9fa;
 }
 
 .team-img img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .team-info h3 {
-    font-size: 22px;
-    font-weight: 800;
-    color: #0d3b66;
-    margin-bottom: 6px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1E4265;
+    margin-bottom: 10px;
 }
 
 .team-info .role {
-    color: #1E4265;
-    font-size: 14px;
-    font-weight: 400;
+    color: #5b748e;
+    font-size: 18px;
+    font-weight: 500;
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .team-info p {
-    font-size: 13px;
-    color: #888;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 15px;
+    color: #777;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-card .order-btn {
+    background-color: #fff;
+    border: 1px solid #f1f4f8;
+    color: #1E4265;
+    padding: 12px 30px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 320px;
+    margin: 0;
+}
+
+.team-card .order-btn i {
+    color: #07CCEC;
+    font-size: 22px;
+}
+
+.team-card .order-btn:hover {
+    background-color: #f8fbff;
+    border-color: #07CCEC;
+    transform: translateY(-2px);
 }
 
 .slider-nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
+    gap: 60px;
+    margin-top: 50px;
 }
 
 .slider-nav button {
     background: none;
     border: none;
-    font-size: 20px;
-    color: #0d3b66;
+    font-size: 24px;
+    color: #1E4265;
     cursor: pointer;
-    opacity: 0.4;
-    transition: 0.3s;
+    opacity: 0.3;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .slider-nav button:hover {
     opacity: 1;
     color: #07CCEC;
+    transform: scale(1.2);
 }
 
 .slider-dots {
     display: flex;
-    gap: 8px;
+    gap: 12px;
 }
 
 .dot {
-    width: 7px;
-    height: 7px;
-    background: #e0e0e0;
+    width: 8px;
+    height: 8px;
+    background: #e0e6ed;
     border-radius: 50%;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .dot.active {
-    background: #0d3b66;
-    transform: scale(1.2);
+    background: #1E4265;
+    width: 12px;
+    height: 12px;
+    margin: -2px;
 }
 
 /* Mobile Responsiveness for Team */
@@ -857,11 +894,9 @@ nav ul li a:hover {
 /* Devices Rental Section Styles */
 .devices-rental-section {
     background-color: #ffffff;
-    padding-bottom: 150px;
+    padding-bottom: 120px;
     width: 100%;
     position: relative;
-    overflow: visible;
-    min-height: 800px;
 }
 
 .rental-header {
@@ -870,47 +905,52 @@ nav ul li a:hover {
     background: url('images/405221941_06b7a53e-e5b8-44d1-a56f-3118bebf33fe 2.png') no-repeat center center/cover;
     position: relative;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
     text-align: right;
     color: #fff;
+    padding: 0 5% 100px;
+}
+
+.rental-header .header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(2, 11, 26, 0.4) 0%, rgba(2, 11, 26, 0.8) 100%);
     z-index: 1;
-    padding: 0 10% 120px;
-    /* Adjusted padding */
 }
 
 .rental-header .header-content {
     position: relative;
     z-index: 2;
-    max-width: 850px;
-    width: auto;
+    max-width: 900px;
 }
 
 .rental-header h2 {
-    font-size: 56px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    line-height: 1.1;
+    font-size: 52px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #fff;
 }
 
 .rental-header p {
-    font-size: 15px;
-    font-weight: 300;
-    max-width: 725px;
-    margin: 0;
-    opacity: 1;
+    font-size: 19px;
+    font-weight: 400;
     line-height: 1.6;
-    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0;
 }
 
 .rental-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    max-width: 1200px;
-    /* Match global container width */
-    margin: -100px auto 0;
-    /* Overlap with the header transition */
+    gap: 30px;
+    max-width: 800px;
+    margin: -80px auto 0;
     position: relative;
     z-index: 10;
     padding: 0 20px;
@@ -919,94 +959,103 @@ nav ul li a:hover {
 .rental-card {
     background: #fff;
     border-radius: 30px;
-    overflow: visible;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
-    /* Subtle shadow for white-on-white */
-    border: 1px solid #f0f0f0;
-    /* Light border for definition */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f1f4f8;
+    transition: all 0.4s ease;
     text-align: center;
-    padding: 25px 15px;
-    /* Reduced side padding */
-    height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .rental-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 30px 70px rgba(7, 204, 236, 0.25);
+    transform: translateY(-12px);
+    box-shadow: 0 25px 70px rgba(30, 66, 101, 0.12);
 }
 
 .rental-card .card-image {
-    position: relative;
-    border-radius: 20px;
+    width: 100%;
     height: 280px;
-    margin-bottom: 40px;
-    padding: 0;
-    /* Removed padding entirely to make image wider */
+    margin-bottom: 25px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    background: #fcfdfe;
+    border-radius: 25px;
+    overflow: visible;
 }
 
 .rental-card .card-image img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 85%;
+    max-height: 85%;
     object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.rental-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.rental-card .card-badge {
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 
 .rental-card .card-badge img {
     width: 70px;
     height: 70px;
-    object-fit: contain;
 }
 
 .rental-card .card-info {
-    padding-top: 15px;
+    margin-top: 25px;
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
 }
 
 .rental-card .card-info h3 {
-    font-size: 26px;
-    font-weight: 800;
-    color: #0d3b66;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1E4265;
     margin-bottom: 8px;
 }
 
 .rental-card .card-info .model {
     display: block;
-    font-size: 22px;
-    font-weight: 700;
-    color: #0d3b66;
-    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1E4265;
+    margin-bottom: 15px;
 }
 
 .rental-card .card-info p {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.8;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
     margin-bottom: 30px;
-    flex-grow: 1;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .rental-card .order-btn {
-    background-color: #f1f8ff;
-    border: 1px solid #e1efff;
-    color: #0d3b66;
-    padding: 15px;
-    border-radius: 12px;
-    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
+    background: transparent;
+    border: 1px solid #eee;
+    color: #1E4265;
     text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
     transition: all 0.3s ease;
-    margin: 0;
+    width: 100%;
 }
 
 .rental-card .order-btn i {
@@ -1015,8 +1064,8 @@ nav ul li a:hover {
 }
 
 .rental-card .order-btn:hover {
-    background-color: #0d3b66;
-    border-color: #0d3b66;
+    background-color: #1E4265;
+    border-color: #07CCEC;
     color: #fff;
 }
 
@@ -1055,200 +1104,193 @@ nav ul li a:hover {
     }
 }
 
-/* Offers Section Styles */
-.offers-section {
+/* Exclusive Offers Section Styles */
+.exclusive-offers-section {
     padding: 100px 0;
-    background-color: #ffffff;
+    background-color: #fff;
+}
+
+.offers-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.offers-header {
     text-align: center;
-    /* Centering the header text */
+    margin-bottom: 60px;
 }
 
-.offers-grid {
+.offer-badge {
+    background: #F1F4F8;
+    color: #1E4265;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.offers-header h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #1E4265;
+    margin-bottom: 20px;
+}
+
+.offers-header p {
+    font-size: 18px;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.offers-bento-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1.4fr;
-    /* Large card column is wider and on the left in RTL */
-    grid-template-rows: repeat(2, 380px);
-    /* Increased height slightly */
-    gap: 30px;
-    max-width: 1250px;
-    /* Increased max-width */
-    margin: 50px auto 0;
+    grid-template-columns: 1.5fr 1.5fr 2fr;
+    grid-template-rows: repeat(2, 300px);
+    gap: 25px;
 }
 
-.offer-card {
+.offer-item {
     position: relative;
-    border-radius: 10px;
+    border-radius: 9px;
     overflow: hidden;
-    height: 100%;
     color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 40px;
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    transition: transform 0.4s ease;
 }
 
-.offer-card:hover {
-    transform: scale(1.02);
+.offer-item:hover {
+    transform: translateY(-10px);
 }
 
-.offer-card.large-card {
-    grid-column: 3 / 4;
-    /* Left column in RTL */
-    grid-row: 1 / 3;
-    height: 100%;
-}
-
-.offer-card.medium-card {
-    grid-column: 1 / 3;
-    /* Right and middle columns */
-    grid-row: 1 / 2;
-}
-
-.offer-card.small-card:nth-of-type(3) {
-    grid-column: 1 / 2;
-    /* Right column */
-    grid-row: 2 / 3;
-}
-
-.offer-card.small-card:nth-of-type(4) {
-    grid-column: 2 / 3;
-    /* Middle column */
-    grid-row: 2 / 3;
-}
-
-.offer-card .card-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
+.offer-item .item-bg {
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.8s ease;
-    z-index: 1;
+    object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
-.offer-card:hover .card-bg {
+.offer-item:hover .item-bg {
     transform: scale(1.1);
 }
 
-.offer-card .card-overlay {
+.offer-item .item-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(2, 11, 26, 0.2), rgba(2, 11, 26, 0.8));
-    z-index: 2;
+    z-index: 1;
 }
 
-.offer-card .card-content {
-    position: relative;
-    z-index: 3;
+.offer-item .item-content {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    padding: 35px;
+    z-index: 2;
     text-align: right;
 }
 
-.offer-card.large-card h3 {
-    font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.offer-card.large-card h3 span {
-    font-size: 45px;
-    font-weight: 400;
-    margin-top: 5px;
-}
-
-.offer-card h3 {
-    font-size: 24px;
+.offer-item h3 {
+    font-size: 28px;
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-.offer-card p {
-    font-size: 16px;
-    opacity: 0.9;
+.offer-item p {
+    font-size: 15px;
     line-height: 1.6;
     margin-bottom: 25px;
+    opacity: 0.9;
+    max-width: 90%;
 }
 
-.btn-outline-white {
-    display: inline-block;
-    padding: 12px 25px;
-    border: 1px solid #fff;
+.offer-item .item-btn {
     color: #fff;
     text-decoration: none;
-    border-radius: 10px;
     font-weight: 700;
+    font-size: 15px;
     transition: all 0.3s ease;
+    display: inline-block;
 }
 
-.btn-outline-white:hover {
-    background: #fff;
-    color: #020b1a;
+.offer-item .item-btn.border {
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 25px;
+    border-radius: 10px;
 }
 
-.price-badge {
-    font-size: 36px;
-    font-weight: 900;
-    margin-bottom: 15px;
-}
-
-.link-white {
-    color: #fff;
+.offer-item .item-btn:not(.border) {
     text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: gap 0.3s ease;
 }
 
-.link-white:hover {
-    gap: 15px;
+.offer-item .item-btn.border:hover {
+    background: #fff;
+    color: #1E4265;
+    border-color: #fff;
 }
 
-.link-white::after {
-    content: '\f104';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
+/* Bento Grid Spanning - Right part BIGGER (3fr), Left part SMALLER (2fr) */
+.card-v {
+    grid-column: 3 / 4;
+    /* 1 column on the LEFT (width 2fr) */
+    grid-row: 1 / 3;
 }
 
-.card-content.right-aligned {
-    text-align: right;
+.card-h {
+    grid-column: 1 / 3;
+    /* 2 columns on the RIGHT (width 1.5 + 1.5 = 3fr) */
+    grid-row: 1 / 2;
 }
 
-/* Responsive Adjustments */
+.card-s:nth-of-type(3) {
+    grid-column: 1 / 2;
+    /* Width 1.5fr */
+    grid-row: 2 / 3;
+}
+
+.card-s:nth-of-type(4) {
+    grid-column: 2 / 3;
+    /* Width 1.5fr */
+    grid-row: 2 / 3;
+}
+
+.card-v h3 {
+    font-size: 36px;
+}
+
+/* Mobile Adjustments for Bento Grid */
 @media (max-width: 992px) {
-    .offers-grid {
-        grid-template-columns: 1fr;
+    .offers-bento-grid {
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
     }
 
-    .offer-card.large-card,
-    .offer-card.medium-card,
-    .offer-card.small-card:nth-of-type(3),
-    .offer-card.small-card:nth-of-type(4) {
-        grid-column: auto;
+    .card-v,
+    .card-h,
+    .card-s {
+        grid-column: span 2;
         grid-row: auto;
-        height: 400px;
+        height: 350px;
     }
 }
 
 @media (max-width: 768px) {
-    .offers-section {
-        padding: 60px 0;
+    .offers-header h2 {
+        font-size: 32px;
     }
 
-    .offer-card {
-        padding: 25px;
-        height: 350px;
+    .offer-item h3 {
+        font-size: 24px;
     }
 
-    .offer-card.large-card h3 {
+    .card-v h3 {
         font-size: 28px;
     }
 }
@@ -1316,7 +1358,7 @@ nav ul li a:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     position: relative;
-    width: 90%;
+    width: 73%;
     margin: 0 auto;
 }
 
@@ -1328,18 +1370,16 @@ nav ul li a:hover {
 .uniqueness-icon {
     width: 60px;
     height: 60px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 20px;
-    background: rgba(255, 255, 255, 0.05);
 }
 
-.uniqueness-icon i {
-    font-size: 28px;
-    color: #07CCEC;
+.uniqueness-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
 }
 
 .uniqueness-card h3 {
@@ -1556,6 +1596,7 @@ nav ul li a:hover {
     overflow: hidden;
     border-radius: 20px;
     margin: 0 40px;
+    margin-top: 4rem;
 }
 
 .stats-bg {
@@ -1573,6 +1614,7 @@ nav ul li a:hover {
 
 .stats-overlay {
     display: none;
+
 }
 
 .stats-section .container {
@@ -1707,6 +1749,7 @@ nav ul li a:hover {
     padding: 100px 0 80px;
     background-color: #F1F4F6;
     text-align: center;
+    margin-top: 4rem;
 }
 
 .cta-content {
@@ -1819,6 +1862,11 @@ nav ul li a:hover {
     direction: ltr;
 }
 
+.cta-contact-value a {
+    color: #666;
+    text-decoration: none;
+}
+
 /* ================================
    Footer
    ================================ */
@@ -1848,8 +1896,8 @@ nav ul li a:hover {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: 2.5fr 1fr 1fr 1.2fr;
+    gap: 30px;
     padding-bottom: 60px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     align-items: start;
@@ -1907,25 +1955,24 @@ nav ul li a:hover {
 }
 
 .social-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
-    font-size: 18px;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
+.social-icon img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
 .social-icon:hover {
-    background: #07CCEC;
-    border-color: #07CCEC;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(7, 204, 236, 0.3);
+    transform: translateY(-4px) scale(1.1);
 }
 
 /* Footer Bottom */
@@ -1957,7 +2004,7 @@ nav ul li a:hover {
 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 40px;
+        gap: 30px;
     }
 }
 
@@ -2057,10 +2104,15 @@ nav ul li a:hover {
     border-radius: 20px;
 }
 
-.weare-header nav ul li a:hover,
 .weare-header nav ul li a.active {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    background-color: #1E4265;
+    color: #ffffff !important;
+    padding: 8px 18px;
+    border-radius: 8px;
+}
+
+.weare-header nav ul li a:hover {
+    color: #1E4265;
 }
 
 .btn-weare-cta {
@@ -2714,11 +2766,6 @@ nav ul li a:hover {
     line-height: 1.6;
 }
 
-/* Navbar Active State for Contact Page */
-nav ul li a.active {
-    color: var(--primary-color);
-    font-weight: 700;
-}
 
 /* Responsive adjustments for Contact Hero */
 @media (max-width: 1200px) {
