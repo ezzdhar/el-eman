@@ -583,13 +583,6 @@
             // Register GSAP plugins
             gsap.registerPlugin(ScrollTrigger);
 
-            // Mobile menu
-            const toggle = document.getElementById('mobileToggle');
-            const nav = document.querySelector('header nav');
-            if (toggle) {
-                toggle.addEventListener('click', () => nav.classList.toggle('open'));
-            }
-
             // Toggle Booking Forms
             const filterBtns = document.querySelectorAll('.filter-btn');
             const forms = document.querySelectorAll('.form-content');

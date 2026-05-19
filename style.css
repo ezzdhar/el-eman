@@ -235,7 +235,8 @@ nav ul li a.active,
         padding: 15px 20px;
     }
 
-    nav {
+    nav,
+    .weare-header nav {
         position: fixed;
         top: 0;
         right: -300px;
@@ -249,31 +250,44 @@ nav ul li a.active,
         display: block;
     }
 
-    nav.open {
+    nav.open,
+    .weare-header nav.open {
         right: 0;
     }
 
-    nav ul {
+    nav ul,
+    .weare-header nav ul {
         flex-direction: column;
         align-items: flex-start;
         padding: 0 30px;
         gap: 25px;
     }
 
-    nav ul li {
+    nav ul li,
+    .weare-header nav ul li {
         width: 100%;
     }
 
-    nav ul li a {
+    nav ul li a,
+    .weare-header nav ul li a {
         display: block;
         font-size: 20px;
         color: #1E4265 !important;
         padding: 10px 0;
         font-weight: 600;
         border-bottom: 1px solid #f0f0f0;
+        border-radius: 0;
     }
 
-    nav ul li:last-child a {
+    nav ul li a.active,
+    .weare-header nav ul li a.active {
+        background-color: transparent;
+        padding: 10px 0;
+        color: #07CCEC !important;
+    }
+
+    nav ul li:last-child a,
+    .weare-header nav ul li:last-child a {
         border-bottom: none;
     }
 
@@ -286,10 +300,6 @@ nav ul li a.active,
         cursor: pointer;
         z-index: 1001;
         transition: color 0.3s ease;
-    }
-
-    .weare-header .mobile-menu-toggle {
-        color: #1E4265;
     }
 
     .header-cta {
@@ -464,8 +474,6 @@ nav ul li a.active,
     background-position: center;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 30px 47px rgba(0, 0, 0, 0.8),
-        0 0 30px rgba(7, 204, 236, 0.15);
 }
 
 .why-us-card {
@@ -1261,7 +1269,7 @@ nav ul li a.active,
     background: #F1F4F8;
     color: #1E4265;
     padding: 6px 16px;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     font-size: 14px;
     font-weight: 600;
     display: inline-block;
@@ -1278,7 +1286,7 @@ nav ul li a.active,
 .offers-header p {
     font-size: 18px;
     color: #666;
-    max-width: 700px;
+    max-width: 850px;
     margin: 0 auto;
     line-height: 1.7;
 }
@@ -1505,6 +1513,11 @@ nav ul li a.active,
     gap: 25px;
     max-width: 900px;
     margin: 0 auto;
+    background-image: url('images/Vector.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 70px 30px;
 }
 
 .uniqueness-card {
@@ -1560,10 +1573,63 @@ nav ul li a.active,
     .uniqueness-grid {
         grid-template-columns: 1fr;
         max-width: 500px;
+        padding: 50px 20px;
+    }
+
+    .uniqueness-card {
+        width: 85%;
+        padding: 50px 20px;
     }
 
     .uniqueness-section .section-header h2 {
         font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .uniqueness-grid {
+        padding: 40px 15px;
+        gap: 20px;
+    }
+
+    .uniqueness-card {
+        width: 95%;
+        padding: 40px 15px;
+    }
+
+    .uniqueness-section .section-header h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .uniqueness-grid {
+        padding: 30px 10px;
+        gap: 15px;
+    }
+
+    .uniqueness-card {
+        width: 100%;
+        padding: 30px 15px;
+    }
+
+    .uniqueness-card h3 {
+        font-size: 18px;
+    }
+
+    .uniqueness-card p {
+        font-size: 13px;
+    }
+
+    .uniqueness-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+
+    .uniqueness-icon img {
+        width: 60px;
+        height: 60px;
     }
 }
 
@@ -1694,7 +1760,6 @@ nav ul li a.active,
     height: auto;
     display: block;
     margin: 0 auto;
-    filter: drop-shadow(0 20px 40px rgba(13, 59, 102, 0.12));
 }
 
 /* Responsive */
@@ -2394,7 +2459,8 @@ nav ul li a.active,
 }
 
 .text-block {
-    width: 700px;
+    max-width: 700px;
+    width: 100%;
 }
 
 .weare-about-content .weare-badge {
@@ -2677,23 +2743,7 @@ nav ul li a.active,
         gap: 10px;
     }
 
-    .weare-header nav {
-        display: none;
-        width: 100%;
-    }
 
-    .weare-header nav.open {
-        display: block;
-        background: #fff;
-        padding: 15px 20px;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .weare-header nav.open ul {
-        flex-direction: column;
-        gap: 15px;
-    }
 
     .mobile-menu-toggle {
         display: block;
